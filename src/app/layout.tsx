@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Welcome to cojovi.com",
+  title: "0X17 - Agent Cojovi",
   description:
     "Binary stream online. Protocol 0X17 standing by. Scroll to engage the energy core.",
   metadataBase: new URL("http://localhost:3000"),

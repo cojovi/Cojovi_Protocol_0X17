@@ -1,9 +1,10 @@
 <!-- COJOVI / SIGNAL — Protocol 0X17 project edition. Keep with readme-assets/. -->
 <a name="top"></a>
 
-<p align="center">
-  <img src="readme-assets/banner.svg" alt="Protocol 0X17 — scroll-driven storytelling, frame by frame." width="100%">
-</p>
+<picture>
+  <source media="(max-width: 640px)" srcset="readme-assets/showcase-mobile.svg">
+  <img src="readme-assets/showcase.svg" alt="Protocol 0X17 — scroll-driven cinematic interface, frame by frame." width="100%">
+</picture>
 
 <h1 align="center">Cojovi Protocol 0X17</h1>
 
@@ -40,6 +41,23 @@ The home page moves through **Hero → Cinematic Reveal → Systems Nominal → 
 
 > [!IMPORTANT]
 > **The diagnostics are part of the fiction.** Telemetry rows are hardcoded, the hero power readout is calculated from scroll progress, and footer archive links are placeholders. There is no telemetry service, API route, database, or authentication flow in this revision.
+
+## The engineering story
+
+**A scroll becomes the playback head.** Protocol 0X17 turns two image sequences into a cinematic interface: scroll progress selects frames, while dialogue, typography, and fictional systems readouts create the experience around them.
+
+<img src="readme-assets/site-capture.jpg" alt="Live Protocol 0X17 interface showing a cinematic figure, glowing energy core, and dialogue overlay." width="100%">
+
+*Live experience capture. The HUD and diagnostics are fictional interface elements.*
+
+- **Map input to frames.** [Hero](src/components/sections/Hero.tsx) and [CinematicReveal](src/components/sections/CinematicReveal.tsx) preload separate 169-frame sequences, normalize scroll progress, and schedule drawing with `requestAnimationFrame`.
+- **Compose for different screens.** Canvas cover cropping and mobile focal points keep the subject in view while the frame changes; overlays carry dialogue and progress independently of the image.
+- **Build atmosphere with layers.** [Smooth scrolling](src/components/providers/SmoothScrollProvider.tsx), motion wrappers, sticky sections, and visual tokens support the narrative. The rendering path is Canvas 2D.
+- **Understand the tradeoff.** This visual direction uses a large collection of JPEGs; loading, bandwidth, reduced-motion alternatives, and placeholder footer links remain improvement opportunities.
+
+[Experience the live sequence ↗](https://cojovi-protocol-0-x17.vercel.app)
+
+**Verification:** lint and a webpack production build passed during this review. The live site was opened and the initial sequence rendered; this is not a performance benchmark.
 
 <a name="architecture"></a>
 ## `> trace_the_frames`
@@ -203,3 +221,5 @@ The current interface identifies **cojovi.com / Protocol 0X17**, and its footer 
 </p>
 
 <p align="center"><a href="#top">↑ Back to the signal</a></p>
+
+Showcase artwork uses embedded typefaces; see [font licenses](readme-assets/SHOWCASE-FONT-LICENSES.txt).

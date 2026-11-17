@@ -165,7 +165,7 @@ npm run lint
 npm run build
 ```
 
-There is no `test` script or tracked automated test suite. **Builds and tests were not run for this documentation-only task.**
+There is no `test` script or tracked automated test suite. **Lint and the webpack production build passed during the showcase review.**
 
 ### Manual acceptance checklist
 
